@@ -1,0 +1,31 @@
+@{
+    Layout = "_Layout";
+}
+
+@model BookshelfApp.Models.Book
+
+<h2>Delete Book</h2>
+
+<p>Are you sure you want to delete the following book?</p>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Title</th>
+            <td>@Model.Title</td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td>@Model.Author</td>
+        </tr>
+        <tr>
+            <th>Year</th>
+            <td>@Model.Year</td>
+        </tr>
+    </tbody>
+</table>
+
+<form asp-controller="Book" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-controller="Book" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
